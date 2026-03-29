@@ -57,4 +57,58 @@
     color: #555;
 }
 
+/* ---- Q4 analyse section styles ---- */
 
+.analyse {
+    margin-bottom: 32px;
+}
+
+.analyse h3 {
+    font-size: 1.1em;
+    color: #2c3e50;
+    border-left: 4px solid #3498db;
+    padding-left: 10px;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.analyse h4 {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    color: #34495e;
+}
+
+.analyse table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    font-size: 0.93em;
+}
+
+.analyse th, .analyse td {
+    border: 1px solid #ccc;
+    padding: 7px 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.analyse th {
+    background-color: #eaf0fb;
+    font-weight: bold;
+}
+
+.analyse tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.analyse code {
+    background: #f0f0f0;
+    border-radius: 3px;
+    padding: 1px 4px;
+    font-family: monospace;
+    font-size: 0.95em;
+}
+
+.analyse ul {
+    margin: 8px 0 12px 20px;
+}
