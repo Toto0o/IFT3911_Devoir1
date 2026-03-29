@@ -1,0 +1,60 @@
+
+.info-generales {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    flex-direction: column;
+}
+
+.info-generales-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.info-generales-container > div {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.distribution-taches {
+    margin-bottom: 20px;
+}
+
+.distribution-taches table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.distribution-taches th, .distribution-taches td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.distribution-taches th {
+    background-color: #f2f2f2;
+}
+
+.tache {
+    margin-bottom: 20px;
+}
+
+.tache img {
+    max-width: 100%;
+    height: auto;
+    margin : auto;
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.caption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #555;
+}
+
+

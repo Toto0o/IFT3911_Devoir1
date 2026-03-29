@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><pnml>
+<net id="Net-One" type="P/T net">
+<token id="Default" enabled="true" red="0" green="0" blue="0"/>
+<place id="En attente MTL">
+<graphics>
+<position x="315.0" y="135.0"/>
+</graphics>
+<name>
+<value>En attente MTL</value>
+<graphics>
+<offset x="55.333333333333314" y="44.66666666666664"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="En attente R-S">
+<graphics>
+<position x="870.0" y="645.0"/>
+</graphics>
+<name>
+<value>En attente R-S</value>
+<graphics>
+<offset x="46.000000000000014" y="-13.999999999999998"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="Lumière MTL">
+<graphics>
+<position x="315.0" y="390.0"/>
+</graphics>
+<name>
+<value>Lumière MTL</value>
+<graphics>
+<offset x="-11.999999999999996" y="16.666666666666664"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="Lumière R-S">
+<graphics>
+<position x="855.0" y="375.0"/>
+</graphics>
+<name>
+<value>Lumière R-S</value>
+<graphics>
+<offset x="-8.666666666666666" y="13.999999999999998"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="Parti MTL">
+<graphics>
+<position x="855.0" y="135.0"/>
+</graphics>
+<name>
+<value>Parti MTL</value>
+<graphics>
+<offset x="40.66666666666664" y="45.33333333333332"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="Parti R-S">
+<graphics>
+<position x="315.0" y="645.0"/>
+</graphics>
+<name>
+<value>Parti R-S</value>
+<graphics>
+<offset x="43.333333333333314" y="-14.666666666666664"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="Traverse tunnel MTL">
+<graphics>
+<position x="600.0" y="135.0"/>
+</graphics>
+<name>
+<value>Traverse tunnel MTL</value>
+<graphics>
+<offset x="65.33333333333333" y="47.999999999999986"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="Traverse tunnel R-S">
+<graphics>
+<position x="585.0" y="645.0"/>
+</graphics>
+<name>
+<value>Traverse tunnel R-S</value>
+<graphics>
+<offset x="67.99999999999999" y="-12.66666666666666"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,0</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<place id="Tunnel">
+<graphics>
+<position x="585.0" y="375.0"/>
+</graphics>
+<name>
+<value>Tunnel</value>
+<graphics>
+<offset x="-12.0" y="12.0"/>
+</graphics>
+</name>
+<initialMarking>
+<value>Default,1</value>
+<graphics>
+<offset x="0.0" y="0.0"/>
+</graphics>
+</initialMarking>
+<capacity>
+<value>0</value>
+</capacity>
+</place>
+<transition id="Arrive à l'entrée MTL">
+<graphics>
+<position x="165.0" y="135.0"/>
+</graphics>
+<name>
+<value>Arrive à l'entrée MTL</value>
+<graphics>
+<offset x="64.99999999999994" y="-17.66666666666665"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="Arrive entrée R-S">
+<graphics>
+<position x="960.0" y="645.0"/>
+</graphics>
+<name>
+<value>Arrive entrée R-S</value>
+<graphics>
+<offset x="48.07692307692305" y="43.46153846153843"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="Entrer tunnel MTL">
+<graphics>
+<position x="450.0" y="135.0"/>
+</graphics>
+<name>
+<value>Entrer tunnel MTL</value>
+<graphics>
+<offset x="57.66666666666666" y="-19.000000000000007"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="Entrer tunnel R-S">
+<graphics>
+<position x="720.0" y="645.0"/>
+</graphics>
+<name>
+<value>Entrer tunnel R-S</value>
+<graphics>
+<offset x="64.99999999999997" y="44.999999999999986"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="Sortir tunnel MTL">
+<graphics>
+<position x="720.0" y="135.0"/>
+</graphics>
+<name>
+<value>Sortir tunnel MTL</value>
+<graphics>
+<offset x="55.66666666666664" y="-13.66666666666666"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<transition id="Sortir tunnel R-S">
+<graphics>
+<position x="450.0" y="645.0"/>
+</graphics>
+<name>
+<value>Sortir tunnel R-S</value>
+<graphics>
+<offset x="61.66666666666666" y="43.00000000000001"/>
+</graphics>
+</name>
+<orientation>
+<value>0</value>
+</orientation>
+<rate>
+<value>1.0</value>
+</rate>
+<timed>
+<value>false</value>
+</timed>
+<infiniteServer>
+<value>false</value>
+</infiniteServer>
+<priority>
+<value>1</value>
+</priority>
+</transition>
+<arc id="Arrive à l'entrée MTL to En attente MTL" source="Arrive à l'entrée MTL" target="En attente MTL">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="181" y="147" curvePoint="false"/>
+<arcpath id="001" x="312" y="147" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Arrive entrée R-S to En attente R-S" source="Arrive entrée R-S" target="En attente R-S">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="966" y="657" curvePoint="false"/>
+<arcpath id="001" x="896" y="657" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="En attente MTL to Entrer tunnel MTL" source="En attente MTL" target="Entrer tunnel MTL">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="341" y="147" curvePoint="false"/>
+<arcpath id="001" x="456" y="147" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="En attente R-S to Entrer tunnel R-S" source="En attente R-S" target="Entrer tunnel R-S">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="867" y="657" curvePoint="false"/>
+<arcpath id="001" x="736" y="657" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Entrer tunnel MTL to Traverse tunnel MTL" source="Entrer tunnel MTL" target="Traverse tunnel MTL">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="466" y="147" curvePoint="false"/>
+<arcpath id="001" x="597" y="147" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Entrer tunnel R-S to Traverse tunnel R-S" source="Entrer tunnel R-S" target="Traverse tunnel R-S">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="726" y="657" curvePoint="false"/>
+<arcpath id="001" x="611" y="657" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Lumière MTL to Entrer tunnel MTL" source="Lumière MTL" target="Entrer tunnel MTL">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="334" y="388" curvePoint="false"/>
+<arcpath id="001" x="462" y="162" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Lumière R-S to Entrer tunnel R-S" source="Lumière R-S" target="Entrer tunnel R-S">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="860" y="400" curvePoint="false"/>
+<arcpath id="001" x="732" y="642" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Sortir tunnel MTL to Lumière R-S" source="Sortir tunnel MTL" target="Lumière R-S">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="732" y="162" curvePoint="false"/>
+<arcpath id="001" x="859" y="374" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Sortir tunnel MTL to Parti MTL" source="Sortir tunnel MTL" target="Parti MTL">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="736" y="147" curvePoint="false"/>
+<arcpath id="001" x="852" y="147" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Sortir tunnel MTL to Tunnel" source="Sortir tunnel MTL" target="Tunnel">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="732" y="162" curvePoint="false"/>
+<arcpath id="001" x="604" y="374" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Sortir tunnel R-S to Lumière MTL" source="Sortir tunnel R-S" target="Lumière MTL">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="462" y="642" curvePoint="false"/>
+<arcpath id="001" x="334" y="415" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Sortir tunnel R-S to Parti R-S" source="Sortir tunnel R-S" target="Parti R-S">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="456" y="657" curvePoint="false"/>
+<arcpath id="001" x="341" y="657" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Sortir tunnel R-S to Tunnel" source="Sortir tunnel R-S" target="Tunnel">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="462" y="642" curvePoint="false"/>
+<arcpath id="001" x="590" y="400" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Traverse tunnel MTL to Sortir tunnel MTL" source="Traverse tunnel MTL" target="Sortir tunnel MTL">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="626" y="147" curvePoint="false"/>
+<arcpath id="001" x="726" y="147" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Traverse tunnel R-S to Sortir tunnel R-S" source="Traverse tunnel R-S" target="Sortir tunnel R-S">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="582" y="657" curvePoint="false"/>
+<arcpath id="001" x="466" y="657" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Tunnel to Entrer tunnel MTL" source="Tunnel" target="Entrer tunnel MTL">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="589" y="374" curvePoint="false"/>
+<arcpath id="001" x="462" y="162" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+<arc id="Tunnel to Entrer tunnel R-S" source="Tunnel" target="Entrer tunnel R-S">
+<graphics/>
+<inscription>
+<value>Default,1</value>
+<graphics/>
+</inscription>
+<tagged>
+<value>false</value>
+</tagged>
+<arcpath id="000" x="604" y="400" curvePoint="false"/>
+<arcpath id="001" x="732" y="642" curvePoint="false"/>
+<type value="normal"/>
+</arc>
+</net>
+</pnml>

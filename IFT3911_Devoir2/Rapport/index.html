@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RapportDm2</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<header>
+    <h1>IFT 3911 - Devoir 2</h1>
+
+    <section class="info-generales">
+        <h2>Informations générales</h2>
+        <div class="info-generales-container">
+            <div>
+                <p>Nom : <strong>Antoine Tessier</strong></p>
+                <p>Matricule : <strong>8121</strong></p>
+                <p>Courriel : <strong>antoine.tessier@umontreal.ca</strong></p>
+                <p>Temps : <strong>2 heures</strong></p>
+            </div>
+            <div>
+                <p>Nom : <strong>Pablo Campos Castellanos</strong></p>
+                <p>Matricule : <strong>6709</strong></p>
+                <p>Courriel : <strong>pablo.campos.castellanos@umontreal.ca</strong></p>
+                <p>Temps : <strong>2 heures</strong></p>
+            </div>
+            <div>
+                <p>Nom : <strong>Mostafa Heider</strong></p>
+                <p>Matricule : <strong>0758</strong></p>
+                <p>Courriel : <strong>mostafa.heider@umontreal.ca</strong></p>
+                <p>Temps : <strong>2 heures</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="distribution-taches">
+        <h2>Distribution des tâches</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tâche</th>
+                    <th>Antoine</th>
+                    <th>Pablo</th>
+                    <th>Mostafa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>(1) Modélisation et analyse du réseau de pétri</td>
+                    <td>Modélisation et analyse</td>
+                    <td>Vérification</td>
+                    <td>Vérification</td>
+                </tr>
+                <tr>
+                    <td>(2) Modélisation du système du four à micro-ondes (Statechart)</td>
+                    <td>Vérification</td>
+                    <td>Modélisation</td>
+                    <td>Vérification</td>
+                </tr>
+                <tr>
+                    <td>(3) Révision du design</td>
+                    <td>Vérification</td>
+                    <td>Vérification</td>
+                    <td>Révision du design</td>
+                </tr>
+                <tr>
+                    <td>(4) Qualité du design</td>
+                    <td>Rédaction et révision</td>
+                    <td>Production et analyse du graphe IA</td>
+                    <td>Identification des modules et justification</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</header>
+
+<body>
+
+    <section class="table-des-matieres">
+        <h2>Table des matières</h2>
+        <ul>
+            <li><a href="#tache1">(1) Modélisation et analyse du réseau de pétri</a></li>
+            <ul>
+                <li><a href="#reseau-petri">Réseau de Pétri</a></li>
+                <li><a href="#lois-conservation">Lois de conservation</a></li>
+                <li><a href="#graphe-couverture">Graphe de couverture</a></li>
+            </ul>
+            <li><a href="#tache2">(2) Modélisation du système du four à micro-ondes (Statechart)</a></li>
+            <li><a href="#tache3">(3) Révision du design</a></li>
+            <li><a href="#tache4">(4) Qualité du design</a></li>
+            <ul>
+                <li><a href="#identification-modules">Identification des modules</a></li>
+                <li><a href="#graphe-ia">Graphe IA</a></li>
+                <li><a href="#analyse-graphe-ia">Analyse du graphe IA</a></li>
+            </ul>
+        </ul>
+    </section>
+
+    <section class="tache tache1" id="tache1">
+        <h2>(1) Modélisation et analyse du réseau de pétri</h2>
+        <p> Le réseau de pétri modélisé est représenté dans la figure 1.</p>
+        <div class="figure" id="reseau=petri">
+            <img src="Img/PetriNet_dm2_q1.png" alt="Réseau de Pétri">
+            <p class="caption">Figure 1 : Modélisation du réseau de pétri</p>
+        </div>
+        <div class="analyse" id="lois-conservation">
+            <h4 >Lois de conservation</h4>
+            <p>Afin de faciliter l'écriture, les marquages suivant seront représentés par :</p>
+            <ul>
+                <li> M(Tunnel) = M(T)</li>
+                <li> M(traverse tunnel MTL) = M(ttMTL)</li>
+                <li> M(traverse tunnel R-S) = M(ttRS)</li>
+            </ul>
+            <p>Le réseau de pétri respecte la loi de conservation suivante : </p>
+            <p>M(T) + M(ttMTL) + M(ttRS) = c(M), ou c(M) = 1, une constante</p>
+            <p>On regarde maintenant le marquage après chaque transition qui influe sur le nombre de jetons des places
+                Tunnel, traverse tunnel MTL et traverse tunnel R-S.</p>
+            <ul>
+                <li>Initialement : M<sub>0</sub>(T) = 1, M<sub>0</sub>(ttMTL) = 0, M<sub>0</sub>(ttRS) = 0</li>
+                <li>Après la transition t1 : M<sub>t1</sub>(T) = 0, M<sub>t1</sub>(ttMTL) = 1, M<sub>t1</sub>(ttRS) = 0,
+                    c(M<sub>t1</sub>) = 1</li>
+                <li>Après la transition t2 : M<sub>t2</sub>(T) = 1, M<sub>t2</sub>(ttMTL) = 0, M<sub>t2</sub>(ttRS) = 0,
+                    c(M<sub>t2</sub>) = 1</li>
+                <li>Après la transition t1' : M<sub>t1'</sub>(T) = 0, M<sub>t1'</sub>(ttMTL) = 0, M<sub>t1'</sub>(ttRS)
+                    = 1, c(M<sub>t1'</sub>) = 1</li>
+                <li>Après la transition t2' : M<sub>t2'</sub>(T) = 1, M<sub>t2'</sub>(ttMTL) = 0, M<sub>t2'</sub>(ttRS)
+                    = 0, c(M<sub>t2'</sub>) = 1</li>
+            </ul>
+            <p>Dans tous les cas, la loi de conservation est respectée pour toutes les transitions et donc soit une
+                seule voiture est dans le tunnel à la fois, soit aucune voiture n'est dans le tunnel.</p>
+        </div>
+
+        <div class="analyse" id="graphe-couverture">
+            <h4>Graphe de couverture</h4>
+            <p>Le graphe de couverture est représenté dans la figure 2.</p>
+            <div class="figure">
+                <img src="Img/graphe_couverture.png" alt="Graphe de Couverture">
+                <p class="caption">Figure 2 : Graphe de couverture du réseau de pétri</p>
+            </div>
+            <p> Les marquages du graphe de couverture sont les suivants :
+                M("En attente MTL",
+                "Traverse tunnel MTL",
+                "Parti MTL", "En attente R-S",
+                "Traverse tunnel R-S",
+                "Parti R-S",
+                "Tunnel",
+                "Lumière MTL",
+                "Lumière R-S")
+            </p>
+            <p>On remarque que le graphe est connexe, donc toutes les transistions sont accessibles. De plus, le graphe
+                est un cycle, et aucune transition ne peut être bloqué indéfiniment. On en conclut donc qu'il n'y a pas
+                de famine dans le réseau.</p>
+
+        </div>
+    </section>
+
+    <section class="tache tache2" id="tache2">
+        <h2>(2) Modélisation et analyse du système du four à micro-ondes (Statechart)</h2>
+        <p>Le statechart modélisé est représenté dans la figure 3. Le dossier <u>Microwave fonctionnel</u> contient la solution du statechart.</p>
+        <div class="figure">
+            <img src="Img/microwave.png" alt="Statechart du four à micro-ondes">
+            <p class="caption">Figure 3 : Modélisation du statechart du four à micro-ondes</p>
+        </div>
+    </section>
+
+    <section class="tache tache3" id="tache3">
+        <h2>(3) Révision du design</h2>
+        <p>Afin d'améliorer la qualité du design du système de réservation produit au devoir 1, nous avons effectués quelques modifications. Le fichier
+            <u>systeme_reservation_voyage.vpp</u> contient les diagrammes UML révisés.</p>
+        </p>
+    
+    </section>
+
+    <section class="tache tache4" id="tache4">
+        <h2>(4) Qualité du design</h2>
+        
+        <div class="analyse" id="identification-module">
+            <h4>Identification des modules</h4>
+            <p>Nous avons identifié les modules suivants à usage général et réutilisables dans d'autres systèmes :</p>
+            <ul>
+                <li><strong>Véhicule : </strong>Ce paquet contient seulement des classes relatives aux véhicules, et donc ce paquet est très cohésif. 
+                    De plus, il est très peu couplé aux autres paquets du domaine </li>
+                <li><strong>Paiement :</strong></li>
+                <li><strong>Voyage : </strong></li>
+            </ul>
+        </div>
+        
+        <div class="analyse" id="graphe-ia">
+            <h4>Graphe IA</h4>
+            <p>Le graphe IA du système de réservation de voyage est représenté dans la figure 4.</p>
+            <div class="figure">
+                <img src="Img/graphe_ia.png" alt="Graphe IA du système de réservation de voyage">
+                <p class="caption">Figure 4 : Graphe IA du système de réservation de voyage</p>
+            </div>
+            <p>On construit le graph IA à partir des mesures d'instabilité et d'abstraction de chaque paquet. On détermine l'instabilité avec : </p>
+            <div style="text-align: center; font-size: 24px;">
+                <math>
+                    I = 
+                    <mfrac>
+                        <mn>C<sub>e</sub></mn>
+                        <mn>C<sub>a</sub> + C<sub>e</sub></mn>
+                    </mfrac>
+                </math>
+            </div>
+            <p>où C<sub>e</sub> correspond aux dépendances sortantes et C<sub>a</sub> aux
+            dépendances entrantes. L'abstraction est donnée par : </p>
+            <div style="text-align: center; font-size: 24px;">
+                <math>
+                    A = 
+                    <mfrac>
+                        <mn>N<sub>a</sub></mn>
+                        <mn>N<sub>c</sub></mn>
+                    </mfrac>
+                </math>
+            </div>
+            <p>où N<sub>a</sub> est le nombre de classe absrtaite et N<sub>c</sub> le nombre total de classe dans le paquet</p>
+            <p>Selon le principe du SAP un paquet stable devrait être plus abstrait. Dans
+            notre design, nous avons donc considérés les classes Compagnie, SegmentVoyage,
+            Terminal, Vehicule, Section et UniteReservable comme étant abstraites,
+            car elles servent de classes de base dans des hiérarchies de généralisation. Notre
+            choix fait du sens si on se base sur les heuristiques du cours, où les classes mères
+            sont généralement abstraites pour permettre l'extension du système sans modifier la logique.</p>
+
+            <p>En analysant notre graphe IA, on peut observer que le paquet Reservations se
+            situe au point (1, 0) ce qui correspond à un paquet très instable et complètement
+            concret. On peut dire que c'est logique, car il dépend de plusieurs autres modules pour fonctionner</p>
+
+            <p>Le paquet Voyages a une instabilité moyenne avec un faible niveau d'abstraction,
+            ce qui nous montres qu'il dépend partiellement des autres paquets tout en
+            restant majoritairement concret.</p>
+
+            <p>Les paquets Paiements et Vehicules sont quant à eux très stables, car ils
+            ont peu ou pas de dépendances sortantes. Par contre, leur niveau d'abstraction
+            est faible, surtout pour Paiements qui se retrouve au point (0, 0). Cela indique
+            que ces paquets sont plus rigides et pourraient être plus difficiles à modifier ou
+            à faire évoluer.</p>
+
+            <p>Globalement, le design respecte partiellement le Stable Abstractions Principle,
+            mais certains paquets stables ne sont pas assez abstraits, ce qui peut créer des
+            limitations en termes de flexibilité et d'évolution du système</p>
+        </div>
+        
+    </section>
+        
+
+</body>
+
+</html>
