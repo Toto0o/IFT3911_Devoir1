@@ -95,7 +95,6 @@
             <ul>
                 <li><a href="#identification-modules">4.1 Modules réutilisables</a></li>
                 <li><a href="#couplage-cohesion">4.2 Couplage et cohésion</a></li>
-                <li><a href="#fardeau-classes">4.3 Fardeau des classes</a></li>
                 <li><a href="#graphe-ia">4.4 Graphe I/A</a></li>
                 <li><a href="#principes-conception">4.5 Principes de conception</a></li>
             </ul>
@@ -296,38 +295,38 @@ post:
                 <tbody>
                     <tr>
                         <td>controller</td>
-                        <td>Fonctionnelle ✅</td>
+                        <td>Fonctionnelle </td>
                         <td><code>VoyageController</code> et <code>Admin</code> gèrent exclusivement les opérations de
                             coordination du système (façade).</td>
                     </tr>
                     <tr>
                         <td>core.transport</td>
-                        <td>Fonctionnelle ✅</td>
+                        <td>Fonctionnelle </td>
                         <td><code>Terminal</code>, <code>Vehicule</code>, <code>Section</code>,
                             <code>UniteReservable</code> — tous liés aux abstractions du transport.
                         </td>
                     </tr>
                     <tr>
                         <td>core.reservation</td>
-                        <td>Fonctionnelle ✅</td>
+                        <td>Fonctionnelle </td>
                         <td><code>Reservation</code>, <code>StatutReservation</code>, <code>Scheduler</code> — tous liés
                             au cycle de vie d'une réservation.</td>
                     </tr>
                     <tr>
                         <td>core.paiement</td>
-                        <td>Fonctionnelle ✅</td>
+                        <td>Fonctionnelle </td>
                         <td><code>Paiement</code>, <code>MethodePaiement</code>, <code>StatutPaiement</code> — tous liés
                             au traitement du paiement.</td>
                     </tr>
                     <tr>
                         <td>domain.voyage</td>
-                        <td>Fonctionnelle ✅</td>
+                        <td>Fonctionnelle </td>
                         <td><code>SegmentVoyage</code>, <code>Vol</code>, <code>Itineraire</code>, <code>Trajet</code> —
                             tous liés à la notion de voyage.</td>
                     </tr>
                     <tr>
                         <td>domain.client</td>
-                        <td>Fonctionnelle ✅</td>
+                        <td>Fonctionnelle </td>
                         <td><code>Client</code> et ses associations directes — paquet centré sur la gestion du client.
                         </td>
                     </tr>
@@ -386,29 +385,29 @@ post:
                 <tbody>
                     <tr>
                         <td>controller → domain</td>
-                        <td>Données ✅</td>
+                        <td>Données </td>
                         <td>Passe des paramètres simples (identifiants, critères de recherche) — aucun objet complexe
                             partagé.</td>
                     </tr>
                     <tr>
                         <td>controller → core.reservation</td>
-                        <td>Données ✅</td>
+                        <td>Données </td>
                         <td>Passe des IDs et informations de paiement — échange minimal de données.</td>
                     </tr>
                     <tr>
                         <td>core.reservation → core.paiement</td>
-                        <td>Données ✅</td>
+                        <td>Données </td>
                         <td>Association simple : une <code>Reservation</code> est liée à un <code>Paiement</code>.</td>
                     </tr>
                     <tr>
                         <td>domain.voyage → core.transport</td>
-                        <td>Empreinte ✅</td>
+                        <td>Empreinte </td>
                         <td>Utilise les classes abstraites <code>Terminal</code> et <code>Vehicule</code> — dépendance
                             sur des types, non sur des implémentations concrètes.</td>
                     </tr>
                     <tr>
                         <td>domain.client → core.reservation</td>
-                        <td>Données ✅</td>
+                        <td>Données </td>
                         <td>Le <code>Client</code> possède une collection de <code>Reservation</code> — association de
                             composition simple.</td>
                     </tr>
@@ -418,143 +417,6 @@ post:
                 <strong>Conclusion :</strong> Le système présente un <strong>couplage faible</strong> (données /
                 empreinte)
                 et une <strong>cohésion forte</strong> (fonctionnelle) → <strong>BON DESIGN</strong>.
-            </p>
-        </div>
-
-        <!-- ===================== 4.3 FARDEAU DES CLASSES ===================== -->
-        <div class="analyse" id="fardeau-classes">
-            <h3>4.3 Fardeau des classes</h3>
-            <p>
-                Le fardeau d'une classe est calculé par la formule :
-                <strong>Fardeau = Nombre d'attributs + Nombre de méthodes</strong>.
-                Un fardeau élevé doit être justifié par le rôle central de la classe dans le domaine.
-            </p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Classe</th>
-                        <th>Attributs</th>
-                        <th>Méthodes</th>
-                        <th>Fardeau</th>
-                        <th>Domaine</th>
-                        <th>Évaluation</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>VoyageController</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>5</td>
-                        <td>Élevé (façade)</td>
-                        <td>✅ Équilibré</td>
-                    </tr>
-                    <tr>
-                        <td>Admin</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>6</td>
-                        <td>Élevé (gestion)</td>
-                        <td>✅ Équilibré</td>
-                    </tr>
-                    <tr>
-                        <td>Compagnie</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>4</td>
-                        <td>Moyen</td>
-                        <td>✅ Équilibré</td>
-                    </tr>
-                    <tr>
-                        <td>Vehicule</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>5</td>
-                        <td>Moyen</td>
-                        <td>✅ Équilibré</td>
-                    </tr>
-                    <tr>
-                        <td>Section</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>5</td>
-                        <td>Moyen</td>
-                        <td>✅ Équilibré</td>
-                    </tr>
-                    <tr>
-                        <td>UniteReservable</td>
-                        <td>4</td>
-                        <td>2</td>
-                        <td>6</td>
-                        <td>Moyen</td>
-                        <td>✅ Équilibré</td>
-                    </tr>
-                    <tr>
-                        <td>Siege</td>
-                        <td>2</td>
-                        <td>0</td>
-                        <td>2</td>
-                        <td>Faible</td>
-                        <td>✅ Léger</td>
-                    </tr>
-                    <tr>
-                        <td>Cabine</td>
-                        <td>2</td>
-                        <td>0</td>
-                        <td>2</td>
-                        <td>Faible</td>
-                        <td>✅ Léger</td>
-                    </tr>
-                    <tr>
-                        <td>SegmentVoyage</td>
-                        <td>7</td>
-                        <td>2</td>
-                        <td>9</td>
-                        <td>Élevé (central)</td>
-                        <td>✅ Justifié</td>
-                    </tr>
-                    <tr>
-                        <td>Terminal</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>3</td>
-                        <td>Faible</td>
-                        <td>✅ Léger</td>
-                    </tr>
-                    <tr>
-                        <td>Client</td>
-                        <td>4</td>
-                        <td>2</td>
-                        <td>6</td>
-                        <td>Moyen</td>
-                        <td>✅ Équilibré</td>
-                    </tr>
-                    <tr>
-                        <td>Reservation</td>
-                        <td>5</td>
-                        <td>2</td>
-                        <td>7</td>
-                        <td>Élevé (central)</td>
-                        <td>✅ Justifié</td>
-                    </tr>
-                    <tr>
-                        <td>Paiement</td>
-                        <td>4</td>
-                        <td>1</td>
-                        <td>5</td>
-                        <td>Moyen</td>
-                        <td>✅ Équilibré</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p>
-                <strong>Analyse :</strong> Le fardeau moyen est d'environ <strong>5</strong> (acceptable).
-                Les classes les plus chargées sont <code>SegmentVoyage</code> (9) et <code>Reservation</code> (7),
-                ce qui est <strong>justifié</strong> car ce sont les entités centrales du domaine.
-                Les classes légères (<code>Siege</code>, <code>Cabine</code>, <code>Terminal</code>) sont des
-                entités simples dont la faible responsabilité est normale.
-                Aucune classe n'atteint un fardeau excessif (seuil &gt; 15) — <strong>pas de refactoring
-                    nécessaire</strong>.
             </p>
         </div>
 
@@ -676,14 +538,14 @@ post:
                 <tbody>
                     <tr>
                         <td><strong>S</strong> — Responsabilité unique</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td>Chaque classe a une responsabilité unique et bien délimitée : <code>Client</code> gère les
                             clients, <code>Reservation</code> gère les réservations, <code>Paiement</code> gère les
                             paiements.</td>
                     </tr>
                     <tr>
                         <td><strong>O</strong> — Ouvert/Fermé</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td>Les classes abstraites (<code>Compagnie</code>, <code>Terminal</code>,
                             <code>Vehicule</code>, <code>Section</code>) permettent d'étendre le système (ex. : nouveau
                             type de transport) sans modifier les classes existantes.
@@ -691,7 +553,7 @@ post:
                     </tr>
                     <tr>
                         <td><strong>L</strong> — Substitution de Liskov</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td><code>Vol</code>, <code>Itineraire</code>, <code>Trajet</code> sont substituables à
                             <code>SegmentVoyage</code> ; <code>Siege</code> et <code>Cabine</code> sont substituables à
                             <code>UniteReservable</code> sans altérer le comportement.
@@ -699,14 +561,14 @@ post:
                     </tr>
                     <tr>
                         <td><strong>I</strong> — Ségrégation des interfaces</td>
-                        <td>⚠️ Partiel</td>
+                        <td>Partiel</td>
                         <td>Il n'y a pas d'interfaces explicites dans le design actuel, mais les classes abstraites
                             jouent un rôle similaire. L'ajout d'interfaces (ex. : <code>IPaiement</code>) renforcerait
                             ce principe.</td>
                     </tr>
                     <tr>
                         <td><strong>D</strong> — Inversion des dépendances</td>
-                        <td>⚠️ Partiel</td>
+                        <td>Partiel</td>
                         <td><code>VoyageController</code> dépend de classes abstraites (<code>Compagnie</code>,
                             <code>Vehicule</code>) pour les aspects transport, mais dépend aussi de classes concrètes
                             dans certains cas. L'introduction d'interfaces améliorerait ce point.
@@ -727,38 +589,38 @@ post:
                 <tbody>
                     <tr>
                         <td>Expert en information</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td><code>Reservation</code> calcule son total, <code>Section</code> calcule son propre prix —
                             chaque classe opère sur ses propres données.</td>
                     </tr>
                     <tr>
                         <td>Créateur</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td><code>Client</code> crée des <code>Reservation</code> (il les possède) ;
                             <code>VoyageController</code> crée les résultats de recherche.
                         </td>
                     </tr>
                     <tr>
                         <td>Contrôleur</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td><code>VoyageController</code> est le contrôleur du système — point d'entrée unique pour les
                             cas d'utilisation (façade).</td>
                     </tr>
                     <tr>
                         <td>Faible couplage</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td>Les paquets sont découplés par des interfaces claires ; les dépendances vont toujours du
                             plus instable vers le plus stable.</td>
                     </tr>
                     <tr>
                         <td>Forte cohésion</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td>Chaque paquet a une responsabilité clairement définie (transport, paiement, réservation,
                             voyage).</td>
                     </tr>
                     <tr>
                         <td>Polymorphisme</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td>Les hiérarchies d'héritage (<code>Terminal</code>, <code>Vehicule</code>,
                             <code>SegmentVoyage</code>, <code>UniteReservable</code>) permettent le polymorphisme sans
                             conditionnelles explicites.
@@ -766,20 +628,20 @@ post:
                     </tr>
                     <tr>
                         <td>Fabrication pure</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td><code>VoyageController</code> n'est pas une entité du domaine métier — c'est une fabrication
                             pure introduite pour coordonner les interactions sans alourdir les classes du domaine.</td>
                     </tr>
                     <tr>
                         <td>Indirection</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td><code>VoyageController</code> sert d'intermédiaire entre <code>Client</code> et les modules
                             <code>core.*</code>, réduisant le couplage direct.
                         </td>
                     </tr>
                     <tr>
                         <td>Protection des variations</td>
-                        <td>✅ Oui</td>
+                        <td> Oui</td>
                         <td>Les classes abstraites (<code>Vehicule</code>, <code>Terminal</code>,
                             <code>Compagnie</code>) protègent le reste du système contre les variations dans les types
                             de transport concrets.
@@ -817,14 +679,13 @@ post:
 
             <h4>Résumé</h4>
             <ul>
-                <li><strong>Couplage :</strong> Faible (données / empreinte) ✅</li>
-                <li><strong>Cohésion :</strong> Forte (fonctionnelle) ✅</li>
-                <li><strong>Fardeau :</strong> Bien distribué (moyenne ≈ 5, maximum 9) ✅</li>
-                <li><strong>Graphe I/A :</strong> Majorité des paquets proche de la Main Sequence ✅ — amélioration
+                <li><strong>Couplage :</strong> Faible (données / empreinte) </li>
+                <li><strong>Cohésion :</strong> Forte (fonctionnelle) </li>
+                <li><strong>Graphe I/A :</strong> Majorité des paquets proche de la Main Sequence  — amélioration
                     possible pour <code>core.paiement</code></li>
-                <li><strong>SOLID :</strong> 3/5 respectés pleinement, 2/5 partiellement ✅</li>
-                <li><strong>GRASP :</strong> 9/9 principes appliqués ✅</li>
-                <li><strong>Patterns :</strong> Façade, Template Method, base de Strategy ✅</li>
+                <li><strong>SOLID :</strong> 3/5 respectés pleinement, 2/5 partiellement </li>
+                <li><strong>GRASP :</strong> 9/9 principes appliqués </li>
+                <li><strong>Patterns :</strong> Façade, Template Method, base de Strategy </li>
             </ul>
         </div>
 
