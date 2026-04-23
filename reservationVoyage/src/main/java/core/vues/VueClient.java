@@ -2,7 +2,6 @@ package core.vues;
 
 import core.modele.ControleurAdmin;
 import core.modele.ModeleVoyage;
-import core.modele.Sujet;
 import core.modele.commandes.reservation.AjouterReservationCommande;
 import core.prix.Paiement;
 import core.reservations.Reservation;
@@ -16,12 +15,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
 
-import javax.swing.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

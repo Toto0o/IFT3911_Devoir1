@@ -1,6 +1,5 @@
 package core.prix;
 
-import com.sun.source.doctree.EscapeTree;
 import core.reservations.Reservation;
 import core.reservations.unites.UniteReservable;
 import javafx.scene.Scene;

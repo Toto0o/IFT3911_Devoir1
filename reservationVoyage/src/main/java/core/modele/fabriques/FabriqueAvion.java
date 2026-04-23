@@ -1,11 +1,8 @@
 package core.modele.fabriques;
 
-import core.voyage.SegmentVoyage;
 import core.voyage.terminaux.Aeroport;
-import core.voyage.terminaux.Terminal;
 import core.voyage.vehicules.Avion;
 import core.voyage.vehicules.Section;
-import core.voyage.vehicules.Vehicule;
 import core.reservations.unites.UniteReservable;
 
 import java.util.Arrays;

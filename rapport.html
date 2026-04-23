@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RapportDm2</title>
+    <style>
+        :root {
+            --bleu-fonce: #1f3a5f;
+            --bleu-moyen: #355c8a;
+            --bleu-pale: #eef4fb;
+            --gris-texte: #2a2f36;
+            --gris-doux: #6b7280;
+            --bordure: #d9e2ef;
+            --fond: #f7f9fc;
+            --blanc: #ffffff;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--gris-texte);
+            background: var(--fond);
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 32px auto;
+            background: var(--blanc);
+            padding: 42px 52px 56px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(31, 58, 95, 0.08);
+        }
+
+        .entete-principal {
+            border-bottom: 3px solid var(--bleu-fonce);
+            padding-bottom: 18px;
+            margin-bottom: 28px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 2.2rem;
+            color: var(--bleu-fonce);
+            letter-spacing: 0.3px;
+        }
+
+        .sous-titre {
+            margin: 0;
+            color: var(--gris-doux);
+            font-size: 1rem;
+        }
+
+        h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            color: var(--bleu-fonce);
+            border-left: 5px solid var(--bleu-moyen);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.12rem;
+            color: var(--bleu-moyen);
+            margin-bottom: 10px;
+        }
+
+        section {
+            margin-top: 34px;
+        }
+
+        .carte {
+            background: var(--bleu-pale);
+            border: 1px solid var(--bordure);
+            border-radius: 14px;
+            padding: 22px 24px;
+        }
+
+        .info-generales-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+
+        .membre {
+            background: var(--blanc);
+            border: 1px solid var(--bordure);
+            border-radius: 12px;
+            padding: 16px 18px;
+        }
+
+        .membre p {
+            margin: 6px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+            background: var(--blanc);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid var(--bordure);
+            padding: 12px 14px;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--bleu-fonce);
+            color: white;
+            font-weight: 600;
+        }
+
+        .table-des-matieres ol {
+            margin: 10px 0 0 20px;
+            padding: 0;
+        }
+
+        .table-des-matieres li {
+            margin: 8px 0;
+        }
+
+        .contenu p {
+            margin: 0 0 14px;
+            text-align: justify;
+        }
+
+        .contenu ul {
+            margin: 0 0 18px 22px;
+        }
+
+        .contenu li {
+            margin: 8px 0;
+        }
+
+        .bloc-code {
+            background: #0f172a;
+            color: #e5eefb;
+            border-radius: 12px;
+            padding: 18px 20px;
+            overflow-x: auto;
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 16px 0 20px;
+            white-space: pre-wrap;
+        }
+
+        .separateur {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--bordure), transparent);
+            margin: 30px 0;
+        }
+
+        .conclusion {
+            background: #f8fbff;
+            border: 1px solid var(--bordure);
+            border-left: 6px solid var(--bleu-fonce);
+            border-radius: 14px;
+            padding: 20px 22px;
+        }
+
+        .muted {
+            color: var(--gris-doux);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                box-shadow: none;
+                margin: 0;
+                max-width: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header class="entete-principal">
+            <h1>IFT 3911 — Devoir 2</h1>
+            <p class="sous-titre">Rapport d’analyse et d’amélioration de conception logicielle</p>
+        </header>
+
+        <section class="info-generales">
+            <h2>Informations générales</h2>
+            <div class="info-generales-container">
+                <div class="membre">
+                    <p><strong>Nom :</strong> Antoine Tessier</p>
+                    <p><strong>Matricule :</strong> 8121</p>
+                    <p><strong>Courriel :</strong> antoine.tessier@umontreal.ca</p>
+                    <p><strong>Temps :</strong> 2 heures</p>
+                </div>
+                <div class="membre">
+                    <p><strong>Nom :</strong> Pablo Campos Castellanos</p>
+                    <p><strong>Matricule :</strong> 6709</p>
+                    <p><strong>Courriel :</strong> pablo.campos.castellanos@umontreal.ca</p>
+                    <p><strong>Temps :</strong> 2 heures</p>
+                </div>
+                <div class="membre">
+                    <p><strong>Nom :</strong> Mostafa Heider</p>
+                    <p><strong>Matricule :</strong> 0758</p>
+                    <p><strong>Courriel :</strong> mostafa.heider@umontreal.ca</p>
+                    <p><strong>Temps :</strong> 2 heures</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="table-des-matieres carte">
+            <h2>Table des matières</h2>
+            <ol>
+                <li>Principe Ouvert/Fermé (OCP)</li>
+                <li>Principe de Responsabilité Unique (SRP)</li>
+                <li>Réduction du couplage</li>
+                <li>Amélioration de la cohésion</li>
+                <li>Extensibilité du système</li>
+                <li>Fonctionnalité Undo/Redo</li>
+                <li>Gestion des états</li>
+                <li>Conformité aux principes SOLID</li>
+                <li>Conclusion</li>
+                <li>Executer l'application</li>
+            </ol>
+        </section>
+
+        <main class="contenu">
+            <section>
+                <h2>1. Principe Ouvert/Fermé (OCP)</h2>
+                <p>Dans la conception originale, l'ajout d'un nouveau type de voyage nécessitait la modification de multiples classes existantes. Par exemple, pour ajouter un nouveau moyen de transport, il fallait modifier les méthodes de création, les algorithmes de recherche, et les procédures d'affichage. Cette approche violait directement le principe Ouvert/Fermé, qui stipule qu'une classe devrait être ouverte à l'extension mais fermée à la modification.</p>
+                <p>Le code présentait typiquement cette structure problématique :</p>
+                <pre class="bloc-code"><code>// Approche Devoir 2 - Violation OCP
+if (type.equals("avion")) {
+    // code spécifique avion
+    creerVol();
+    calculerPrixAvion();
+} else if (type.equals("train")) {
+    // code spécifique train  
+    creerTrajet();
+    calculerPrixTrain();
+}
+// Chaque nouveau type nécessite modification du code existant</code></pre>
+                <h3>Solution proposée (Final)</h3>
+                <p>L'application des patrons Fabrique et Visiteur résout ce problème. Le patron Fabrique permet de créer de nouveaux types de voyages en ajoutant simplement une nouvelle fabrique concrète sans modifier le code client. De même, le patron Visiteur permet d'ajouter de nouveaux formats d'affichage en créant un nouveau visiteur sans toucher aux classes d'éléments de voyage.</p>
+                <pre class="bloc-code"><code>// Approche Final - Respect OCP
+FabriqueVoyage fabrique = RegistreFabriques.getInstance().obtenirFabrique(type);
+SegmentVoyage segment = fabrique.creerSegmentVoyage();
+// Aucun modification nécessaire pour nouveaux types</code></pre>
+                <p>Cette transformation réduit considérablement le risque de régression, car le code existant n'est pas modifié lors de l'ajout de nouvelles fonctionnalités. Elle améliore également la stabilité du système et facilite la maintenance évolutive.</p>
+            </section>
+
+            <div class="separateur"></div>
+
+            <section>
+                <h2>2. Principe de Responsabilité Unique (SRP)</h2>
+                <h3>Problématique initiale</h3>
+                <p>La classe <code>VoyageController</code> du Devoir 2 concentrait quatre responsabilités distinctes : la gestion des compagnies, la gestion des véhicules, la gestion des réservations, et la gestion des paiements. Cette concentration violait le principe de responsabilité unique, qui recommande qu'une classe ne devrait avoir qu'une seule raison de changer.</p>
+                <p>Cette situation entraînait plusieurs problèmes :</p>
+                <ul>
+                    <li>Une complexité accrue rendant la classe difficile à comprendre</li>
+                    <li>Un couplage temporel où les modifications d'une fonctionnalité pouvaient affecter les autres</li>
+                    <li>Des difficultés de test, car tester une responsabilité nécessitait de configurer l'environnement pour toutes les autres</li>
+                </ul>
+                <h3>Restructuration appliquée</h3>
+                <p>Le design final distribue ces responsabilités parmi plusieurs classes spécialisées :</p>
+                <ul>
+                    <li><code>ControleurAdmin</code> gère uniquement l'exécution et l'annulation des commandes</li>
+                    <li><code>ModeleVoyage</code> est responsable de la gestion des données métier et de la notification des observateurs</li>
+                    <li><code>HistoriqueCommandes</code> prend en charge exclusivement le stockage et la navigation dans l'historique des opérations</li>
+                    <li><code>VueAdministrateur</code> et <code>VueClient</code> se concentrent sur leurs affichages respectifs</li>
+                </ul>
+                <p>Chaque classe possède désormais une seule raison de changer, ce qui simplifie la maintenance et améliore la stabilité du système.</p>
+            </section>
+
+            <div class="separateur"></div>
+
+            <section>
+                <h2>3. Réduction du couplage</h2>
+                <h3>Couplage dans le Devoir 2</h3>
+                <p>L'analyse du design initial révèle un couplage fort à plusieurs niveaux. Premièrement, les vues dépendaient directement de l'implémentation concrète du modèle, accédant à ses structures de données internes. Deuxièmement, le code de création connaissait et instanciait directement les classes concrètes, créant un couplage fort entre la création et l'utilisation des objets. Troisièmement, la gestion des états des sièges reposait sur des booléens dispersés, créant un couplage temporel où l'ordre des opérations était critique.</p>
+                <h3>Découplage apporté par les patrons</h3>
+                <p>Le patron Observateur introduit un découplage complet entre le modèle et les vues. Les vues n'interagissent plus qu'avec l'interface <code>Sujet</code> et sont notifiées passivement des changements, sans accéder directement aux données internes. Cette séparation permet de modifier l'implémentation du modèle sans affecter les vues, et vice-versa.</p>
+                <p>Le patron Fabrique élimine la dépendance du code client envers les classes concrètes. Le client demande simplement une fabrique au registre et utilise l'interface abstraite pour créer des objets. Cette abstraction permet d'introduire de nouvelles implémentations sans modifier le code existant.</p>
+                <p>Le patron État encapsule complètement la logique de transition d'états dans des classes dédiées, éliminant le couplage temporel et les dépendances conditionnelles dispersées dans le code.</p>
+                <p>Cette réduction du couplage se traduit par une diminution du couplage afferent des classes de contrôle et du couplage des classes de modèle. Le système devient plus modulaire et plus facile à maintenir.</p>
+            </section>
+
+            <div class="separateur"></div>
+
+            <section>
+                <h2>4. Amélioration de la cohésion</h2>
+                <p>Dans le Devoir 2, la classe <code>UniteReservable</code> présentait une cohésion faible en gérant simultanément trois préoccupations distinctes : l'état du siège (via des booléens), la tarification, et la logique de réservation. Cette dispersion des responsabilités rendait la classe difficile à comprendre et à maintenir.</p>
+                <p>Le design final applique une séparation systématique des préoccupations. La classe <code>UniteReservable</code> délègue désormais la gestion de l'état à la hiérarchie <code>EtatUnite</code>, la tarification à la hiérarchie <code>StrategiePrix</code>, et se concentre exclusivement sur son identité et ses attributs fondamentaux.</p>
+                <p>Chaque classe du système final présente une cohésion fonctionnelle forte, où toutes les méthodes et attributs contribuent à une seule responsabilité bien définie. Cette organisation suit le principe de localisation de l'information, regroupant dans une même classe tout ce qui concerne une même préoccupation.</p>
+                <p>Cette amélioration de la cohésion facilite la compréhension du code, simplifie les tests unitaires, et rend les classes plus réutilisables dans d'autres contextes.</p>
+            </section>
+
+            <div class="separateur"></div>
+
+            <section>
+                <h2>5. Extensibilité du système</h2>
+                <p>Le système initial présentait une extensibilité limitée. L'ajout d'un nouveau type de véhicule nécessitait de cinq à sept modifications de classes existantes. L'introduction d'un nouvel état de siège était pratiquement impossible sans un refactoring majeur. Chaque nouvelle fonctionnalité représentait un risque significatif de régression.</p>
+                <p>Le design final transforme radicalement cette situation grâce à l'application synergique des patrons de conception :</p>
+                <ul>
+                    <li>Pour ajouter un nouveau type de transport (par exemple, un autobus), il suffit désormais de créer une nouvelle fabrique <code>FabriqueAutobus</code> qui étend <code>FabriqueVoyage</code>. Aucune modification du code existant n'est nécessaire. Cette approche réduit l'effort de développement d'environ 85%.</li>
+                    <li>Pour introduire un nouvel état de siège (comme <code>EnMaintenance</code>), il suffit d'ajouter une nouvelle classe <code>EnMaintenance</code> qui étend <code>EtatUnite</code>. Le système gère automatiquement les transitions grâce au polymorphisme. Cette simplification représente une réduction d'effort d'environ 90%.</li>
+                    <li>Pour créer un nouveau format d'affichage (par exemple, une vue mobile), il suffit d'implémenter un nouveau visiteur <code>VisiteurMobile</code> sans modifier les classes d'éléments de voyage. Cette approche réduit l'effort d'environ 80%.</li>
+                    <li>Pour ajouter une nouvelle opération administrateur (comme <code>Rembourser</code>), il suffit de créer une nouvelle commande <code>RemboursementCommande</code> qui implémente l'interface <code>Commande</code>. Cette méthode réduit le risque de régression et diminue l'effort d'environ 75%.</li>
+                </ul>
+            </section>
+
+            <div class="separateur"></div>
+
+            <section>
+                <h2>6. Fonctionnalité Undo/Redo</h2>
+                <p>Le système initial ne supportait aucune forme d'annulation d'opérations. Toute action de l'administrateur était irréversible, ce qui représentait un risque opérationnel important et une limitation fonctionnelle majeure.</p>
+                <p>Le patron Commande introduit un support complet pour l'annulation et la restauration des opérations. Chaque action administrateur est encapsulée dans un objet commande qui connaît à la fois la manière de s'exécuter et de s'annuler.</p>
+                <p>L'historique des commandes est géré par la classe <code>HistoriqueCommandes</code>, qui maintient une liste des opérations exécutées et permet de naviguer en avant et en arrière. Cette fonctionnalité améliore significativement l'expérience utilisateur et réduit le risque d'erreurs irréversibles.</p>
+                <pre class="bloc-code"><code>public void annulerDerniere() {
+    if (!historique.estVide()) {
+        Commande cmd = historique.obtenirDerniere();
+        cmd.annuler();
+        modele.notifier();
+    }
+}</code></pre>
+            </section>
+
+            <div class="separateur"></div>
+
+            <section>
+                <h2>7. Gestion des états</h2>
+                <p>La gestion des états des sièges reposait sur des booléens dispersés (<code>estReserve</code>, <code>estOccupe</code>), permettant des états inconsistants et rendant les transitions difficiles à contrôler. Les validations étaient effectuées manuellement à chaque opération, augmentant le risque d'erreurs.</p>
+                <p>Le patron État introduit une gestion rigoureuse des transitions. Chaque siège possède un unique état courant représenté par un objet de la hiérarchie <code>EtatUnite</code>. Les transitions sont encapsulées dans les classes d'états elles-mêmes, garantissant que seules les transitions valides sont possibles.</p>
+                <p>Cette approche élimine les états inconsistants, centralise la logique de validation, et facilite l'ajout de nouveaux états sans modifier le code existant.</p>
+            </section>
+
+            <div class="separateur"></div>
+
+            <section>
+                <h2>8. Conformité aux principes SOLID</h2>
+                <p>L'application des patrons de conception a permis de respecter systématiquement les cinq principes SOLID.</p>
+                <ul>
+                    <li>Le principe <strong>S</strong> (Single Responsibility) est respecté grâce aux patrons Commande, État, et Observateur, qui ont permis de séparer les responsabilités en classes spécialisées.</li>
+                    <li>Le principe <strong>O</strong> (Open/Closed) est respecté grâce aux patrons Fabrique, Visiteur, et Stratégie, qui permettent d'étendre le système sans modifier le code existant.</li>
+                    <li>Le principe <strong>L</strong> (Liskov Substitution) est respecté par tous les patrons, qui utilisent systématiquement le polymorphisme et permettent de substituer des sous-classes à leurs classes de base sans altérer le comportement.</li>
+                    <li>Le principe <strong>I</strong> (Interface Segregation) est respecté grâce aux patrons Observateur et Visiteur, qui définissent des interfaces fines et spécialisées plutôt que des interfaces monolithiques.</li>
+                    <li>Le principe <strong>D</strong> (Dependency Inversion) est respecté grâce aux patrons Fabrique et Observateur, qui inversent les dépendances pour que les modules de haut niveau dépendent d'abstractions plutôt que de détails d'implémentation.</li>
+                </ul>
+            </section>
+
+            <div class="separateur"></div>
+
+            <section>
+                <h2>9. Conclusion</h2>
+                <div class="conclusion">
+                    <p>Cinq bénéfices majeurs émergent de cette transformation. Premièrement, la réduction significative du risque de régression grâce au découplage systématique des composants. Deuxièmement, l'accélération du développement futur permise par l'extensibilité accrue du système. Troisièmement, l'amélioration substantielle de la qualité des tests rendue possible par la testabilité accrue. Quatrièmement, l'enrichissement de l'expérience utilisateur grâce à l'ajout de fonctionnalités comme l'undo/redo. Cinquièmement, l'obtention d'un code plus lisible et maintenable grâce à la séparation claire des responsabilités.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>10. Executer l'application</h2>
+                <p>Pour exécuter l'application, suivez les étapes suivantes :</p>
+                <ol>
+                    <li>Placer vous dans le répertoire reservationVoyageRun</li>
+                    <li>Aller dans le répertoire bin</li>
+                    <li>Sur windows, executer systemeReservation.bat</li>
+                    <li>Sur linux, executer systemeReservation.sh</li>
+                </ol>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

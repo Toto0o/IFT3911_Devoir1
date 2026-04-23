@@ -5,18 +5,13 @@ import core.reservations.Reservation;
 import core.reservations.StatutReservation;
 import core.voyage.SegmentVoyage;
 import core.voyage.terminaux.Terminal;
-import core.voyage.vehicules.Section;
 import core.voyage.vehicules.Vehicule;
 
-import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 public class ModeleVoyage extends Sujet {
 
@@ -72,7 +67,7 @@ public class ModeleVoyage extends Sujet {
 	private List<Reservation> getReservation() {
 		List<Reservation> reservations = new ArrayList<>();
 
-		/*Scanner scanner = new Scanner(
+		Scanner scanner = new Scanner(
 				new InputStreamReader(
 						getClass().getResourceAsStream("/reservations.csv")
 				)
@@ -83,10 +78,10 @@ public class ModeleVoyage extends Sujet {
 			String[] parts = line.split(",");
 
 			Reservation reservation = new Reservation(
-					UUID.fromString(parts[0]), parts[1], StatutReservation.valueOf(parts[2]), Boolean.parseBoolean(parts[3])
+					UUID.fromString(parts[0]), parts[1], StatutReservation.valueOf(parts[2])
 			);
 			reservations.add(reservation);
-		}*/
+		}
 		return reservations;
 	}
 
@@ -117,9 +112,5 @@ public class ModeleVoyage extends Sujet {
 		reservations.remove(res);
 	}
 
-	public void mettreAJourDisponibilites() {
-		// TODO - implement core.modele.ModeleVoyage.mettreAJourDisponibilites
-		throw new UnsupportedOperationException();
-	}
 
 }

@@ -1,7 +1,5 @@
 package core.prix;
 
-import java.util.HashMap;
-
 public class PrixDynamique implements StrategiePrix {
 
 	private double facteurDemande;
