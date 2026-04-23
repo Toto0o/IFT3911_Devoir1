@@ -28,15 +28,23 @@ public class ModeleVoyage extends Sujet {
 	}
 
 	private void init() {
-		voyages = new ArrayList<>(getAllSegmentVoyage());
-		reservations = new ArrayList<>(getAllReservation());
+		voyages = new ArrayList<>(getSegmentVoyage());
+		reservations = new ArrayList<>(getReservation());
 	}
 
 	public List<SegmentVoyage> getAllSegmentVoyage() {
+		return voyages;
+	}
+
+	public List<Reservation> getAllReservation() {
+		return reservations;
+	}
+
+	private List<SegmentVoyage> getSegmentVoyage() {
 		List<SegmentVoyage> segmentVoyages = new ArrayList<>();
 
 
-		/*Scanner scanner = new Scanner(
+		Scanner scanner = new Scanner(
 				new InputStreamReader(
 						getClass().getResourceAsStream("/segments.csv")
 				)
@@ -46,19 +54,22 @@ public class ModeleVoyage extends Sujet {
 			String line = scanner.nextLine();
 			String[] parts = line.split(",");
 
+
 			FabriqueVoyage fabrique = RegistreFabrique.getInstance().obtenirFabrique(parts[0]);
+			System.out.println("Parts 11 : " + parts[11]);
+			System.out.println("Parts 12 : " + parts[12]);
 
 			Terminal origine = fabrique.creerTerminal(parts[1], parts[2]);
 			Terminal destination = fabrique.creerTerminal(parts[3], parts[4]);
-			Vehicule vehicule = fabrique.creerVehicule(parts[5], Integer.getInteger(parts[6]));
-			SegmentVoyage  voyage = fabrique.creerSegementVoyage(parts[7],parts[8],origine,destination,vehicule,
+			Vehicule vehicule = fabrique.creerVehicule(parts[5], Integer.parseInt(parts[6]));
+			SegmentVoyage voyage = fabrique.creerSegementVoyage(parts[7],parts[8],origine,destination,vehicule,
 					parts[9], parts[10], parts[11], parts[12]);
 			segmentVoyages.add(voyage);
-		}*/
+		}
 		return segmentVoyages;
 	}
 
-	public List<Reservation> getAllReservation() {
+	private List<Reservation> getReservation() {
 		List<Reservation> reservations = new ArrayList<>();
 
 		/*Scanner scanner = new Scanner(

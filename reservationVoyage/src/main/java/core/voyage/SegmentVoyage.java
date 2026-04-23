@@ -26,6 +26,7 @@ public class SegmentVoyage implements ElementVoyage {
 		this.heureDepart = heureDepart;
 		this.heureArrivee = heureArrivee;
 		this.dateDepart = dateDepart;
+		this.dateArrivee = dateArrivee;
 	}
 
 	public String getNumero() {

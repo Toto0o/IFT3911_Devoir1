@@ -1,6 +1,8 @@
 package core.prix;
 
+import com.sun.source.doctree.EscapeTree;
 import core.reservations.Reservation;
+import core.reservations.unites.UniteReservable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -27,8 +29,9 @@ public class Paiement {
         return true;
     }
 
-    public static void payer(Reservation reservation) {
+    public static void payer(Reservation reservation, char section) {
         Stage stage = new Stage();
+        stage.setMaximized(true);
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root, 200, 400);
 
@@ -39,6 +42,16 @@ public class Paiement {
         Label lblEmail = new Label("Email: ");
         Label lblPassport = new Label("Passport: ");
         Label lblCredit = new Label("Credit: ");
+        StrategiePrix strategiePrix = null;
+        double prix = reservation.getUnitesReservables().stream()
+                .mapToDouble(UniteReservable::getPrixBase)
+                .sum();
+        switch (section)  {
+            case 'R' -> strategiePrix = new PrixRegulier();
+            case 'P' -> strategiePrix = new PrixPromotion(0.1);
+            case 'D' -> strategiePrix = new PrixDynamique(0.2, 0.2);
+        }
+        Label lblPrix = new Label("Prix: " + strategiePrix.calculerPrix(prix));
 
         TextField tfName = new TextField();
         tfName.setMaxWidth(200);
@@ -55,6 +68,7 @@ public class Paiement {
         vbox.getChildren().addAll(lblEmail, tfEmail);
         vbox.getChildren().addAll(lblPassport, tfPassport);
         vbox.getChildren().addAll(lblCredit, tfCredit);
+        vbox.getChildren().addAll(lblPrix);
         vbox.getChildren().addAll(btnPay);
 
         btnPay.setOnAction(e -> {
@@ -64,8 +78,17 @@ public class Paiement {
             String credit = tfCredit.getText();
 
             reservation.addPaiement(new Paiement(name, email, passport, credit));
+            reservation.getUnitesReservables().forEach(
+                    uniteReservable -> uniteReservable.occuper()
+            );
             vbox.getChildren().clear();
             vbox.getChildren().add(new Text("Success!"));
         });
+
+        root.setCenter(vbox);
+
+        stage.setScene(scene);
+        stage.setTitle("Paiement");
+        stage.show();
     }
 }

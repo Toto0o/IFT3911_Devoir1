@@ -10,9 +10,13 @@ public class VisiteurClient implements Visiteur {
 
     private StringBuilder builder;
 
+    public VisiteurClient() {
+        builder = new StringBuilder();
+    }
+
     @Override
     public void visiter(SegmentVoyage voyage) {
-        builder = new StringBuilder();
+
         visiter(voyage.getOrigine());
         builder.append("-");
         visiter(voyage.getDestination());
@@ -48,6 +52,7 @@ public class VisiteurClient implements Visiteur {
         builder.append(section.getPrix());
         builder.append("|");
         builder.append(section.getTypeSection());
+        builder.append(" : ");
         builder.append(section.numberOfAvilableUnites());
     }
 

@@ -7,7 +7,7 @@ public class RegistreFabrique {
 	private static RegistreFabrique instance;
 	private HashMap<String, FabriqueVoyage> fabriques;
 
-	private void RegisteFabriques() {
+	private RegistreFabrique() {
 		fabriques = new HashMap<>();
 		enregisterFabrique("train", new FabriqueTrain());
 		enregisterFabrique("avion", new FabriqueAvion());
@@ -16,7 +16,7 @@ public class RegistreFabrique {
 
 	public static RegistreFabrique getInstance() {
 		if (instance == null) {
-			new RegistreFabrique();
+			instance = new RegistreFabrique();
 		}
 		return instance;
 	}

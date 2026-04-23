@@ -10,9 +10,13 @@ public class VisiteurAdmin implements Visiteur {
 
     private StringBuilder builder;
 
+    public VisiteurAdmin() {
+        this.builder = new StringBuilder();
+    }
+
     @Override
     public void visiter(SegmentVoyage voyage) {
-        builder = new StringBuilder();
+
         visiter(voyage.getOrigine());
         builder.append("-");
         visiter(voyage.getDestination());
