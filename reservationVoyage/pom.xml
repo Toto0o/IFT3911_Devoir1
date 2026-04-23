@@ -64,11 +64,10 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>ca.umontreal.reservationvoyage/ca.umontreal.reservationvoyage.SystemReservation
-                            </mainClass>
-                            <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
-                            <jlinkImageName>app</jlinkImageName>
+                            <mainClass>reservationVoyage.App</mainClass>
+                            <launcher>reservationVoyage.App</launcher>
+                            <jlinkZipName>reservationVoyage.App</jlinkZipName>
+                            <jlinkImageName>reservationVoyage.App</jlinkImageName>
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>

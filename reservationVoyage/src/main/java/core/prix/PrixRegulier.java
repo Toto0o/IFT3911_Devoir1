@@ -1,15 +1,9 @@
 package core.prix;
 
-public class PrixRegulier extends StrategiePrix {
+public class PrixRegulier implements StrategiePrix {
 
-	/**
-	 * 
-	 * @param prixBase
-	 * @param contexte
-	 */
-	public BigDecimal calculerPrix(BigDecimal prixBase, Map contexte) {
-		// TODO - implement modele.strategies.PrixRegulier.calculerPrix
-		throw new UnsupportedOperationException();
+	public double calculerPrix(double prixBase) {
+		return prixBase;
 	}
 
 }

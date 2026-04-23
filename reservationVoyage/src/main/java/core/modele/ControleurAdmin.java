@@ -1,37 +1,35 @@
 package core.modele;
 
-import core.commandes.HistoriqueCommandes;
+import core.modele.commandes.Commande;
+import core.modele.commandes.HistoriqueCommandes;
+
+import java.rmi.UnexpectedException;
 
 public class ControleurAdmin {
 
 	private HistoriqueCommandes historique;
 	private ModeleVoyage modele;
 
+	public ControleurAdmin(ModeleVoyage modele) {
+		this.modele = modele;
+		historique = new HistoriqueCommandes();
+	}
+
 	public HistoriqueCommandes getHistorique() {
 		return this.historique;
 	}
 
-	public void setHistorique(HistoriqueCommandes historique) {
-		this.historique = historique;
-	}
-
-	/**
-	 * 
-	 * @param cmd
-	 */
 	public void executerCommande(Commande cmd) {
-		// TODO - implement core.modele.ControleurAdmin.executerCommande
-		throw new UnsupportedOperationException();
+		cmd.executer();
+		historique.ajouterCommande(cmd);
 	}
 
 	public void annulerDerniere() {
-		// TODO - implement core.modele.ControleurAdmin.annulerDerniere
-		throw new UnsupportedOperationException();
+		historique.annuler();
 	}
 
 	public void retablirDerniere() {
-		// TODO - implement core.modele.ControleurAdmin.retablirDerniere
-		throw new UnsupportedOperationException();
+		historique.retablir();
 	}
 
 }

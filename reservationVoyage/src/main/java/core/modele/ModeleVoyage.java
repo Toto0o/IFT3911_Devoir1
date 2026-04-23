@@ -1,61 +1,109 @@
 package core.modele;
 
+import core.modele.fabriques.*;
+import core.reservations.Reservation;
+import core.reservations.StatutReservation;
 import core.voyage.SegmentVoyage;
+import core.voyage.terminaux.Terminal;
+import core.voyage.vehicules.Section;
+import core.voyage.vehicules.Vehicule;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.UUID;
+import java.util.stream.Stream;
 
 public class ModeleVoyage extends Sujet {
 
-	/**
-	 * 
-	 * @param segment
-	 */
+	private List<SegmentVoyage> voyages;
+	private List<Reservation> reservations;
+
+	public ModeleVoyage() {
+		init();
+	}
+
+	private void init() {
+		voyages = new ArrayList<>(getAllSegmentVoyage());
+		reservations = new ArrayList<>(getAllReservation());
+	}
+
+	public List<SegmentVoyage> getAllSegmentVoyage() {
+		List<SegmentVoyage> segmentVoyages = new ArrayList<>();
+
+
+		/*Scanner scanner = new Scanner(
+				new InputStreamReader(
+						getClass().getResourceAsStream("/segments.csv")
+				)
+		);
+
+		while (scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+			String[] parts = line.split(",");
+
+			FabriqueVoyage fabrique = RegistreFabrique.getInstance().obtenirFabrique(parts[0]);
+
+			Terminal origine = fabrique.creerTerminal(parts[1], parts[2]);
+			Terminal destination = fabrique.creerTerminal(parts[3], parts[4]);
+			Vehicule vehicule = fabrique.creerVehicule(parts[5], Integer.getInteger(parts[6]));
+			SegmentVoyage  voyage = fabrique.creerSegementVoyage(parts[7],parts[8],origine,destination,vehicule,
+					parts[9], parts[10], parts[11], parts[12]);
+			segmentVoyages.add(voyage);
+		}*/
+		return segmentVoyages;
+	}
+
+	public List<Reservation> getAllReservation() {
+		List<Reservation> reservations = new ArrayList<>();
+
+		/*Scanner scanner = new Scanner(
+				new InputStreamReader(
+						getClass().getResourceAsStream("/reservations.csv")
+				)
+		);
+
+		while (scanner.hasNextLine()) {
+			String line = scanner.nextLine();
+			String[] parts = line.split(",");
+
+			Reservation reservation = new Reservation(
+					UUID.fromString(parts[0]), parts[1], StatutReservation.valueOf(parts[2]), Boolean.parseBoolean(parts[3])
+			);
+			reservations.add(reservation);
+		}*/
+		return reservations;
+	}
+
+
 	public void ajouterSegment(SegmentVoyage segment) {
-		// TODO - implement core.modele.ModeleVoyage.ajouterSegment
-		throw new UnsupportedOperationException();
+		voyages.add(segment);
 	}
 
-	/**
-	 * 
-	 * @param segement
-	 */
-	public void updateSegement(SegmentVoyage segement) {
-		// TODO - implement core.modele.ModeleVoyage.updateSegement
-		throw new UnsupportedOperationException();
+	public void updateSegement(SegmentVoyage old, SegmentVoyage newSegment) {
+		voyages.remove(old);
+		voyages.add(newSegment);
 	}
 
-	/**
-	 * 
-	 * @param segement
-	 */
 	public void supprimerSegement(SegmentVoyage segement) {
-		// TODO - implement core.modele.ModeleVoyage.supprimerSegement
-		throw new UnsupportedOperationException();
+		voyages.remove(segement);
 	}
 
-	/**
-	 * 
-	 * @param res
-	 */
 	public void ajouterReservation(Reservation res) {
-		// TODO - implement core.modele.ModeleVoyage.ajouterReservation
-		throw new UnsupportedOperationException();
+		reservations.add(res);
 	}
 
-	/**
-	 * 
-	 * @param res
-	 */
-	public void updateReservation(Reservation res) {
-		// TODO - implement core.modele.ModeleVoyage.updateReservation
-		throw new UnsupportedOperationException();
+	public void updateReservation(Reservation old, Reservation newRes) {
+		reservations.remove(old);
+		reservations.add(newRes);
 	}
 
-	/**
-	 * 
-	 * @param res
-	 */
 	public void supprimerReservation(Reservation res) {
-		// TODO - implement core.modele.ModeleVoyage.supprimerReservation
-		throw new UnsupportedOperationException();
+		reservations.remove(res);
 	}
 
 	public void mettreAJourDisponibilites() {

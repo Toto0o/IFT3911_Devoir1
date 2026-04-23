@@ -1,17 +1,15 @@
 package core.prix;
 
-public class PrixPromotion extends StrategiePrix {
+public class PrixPromotion implements StrategiePrix {
 
 	private double pourcentageReduction;
 
-	/**
-	 * 
-	 * @param prixBase
-	 * @param contexte
-	 */
-	public BigDecimal calculerPrix(BigDecimal prixBase, Map contexte) {
-		// TODO - implement modele.strategies.PrixPromotion.calculerPrix
-		throw new UnsupportedOperationException();
+	public PrixPromotion(double pourcentageReduction) {
+		this.pourcentageReduction = pourcentageReduction;
+	}
+
+	public double calculerPrix(double prixBase) {
+		return prixBase * pourcentageReduction;
 	}
 
 }

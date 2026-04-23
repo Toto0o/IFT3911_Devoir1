@@ -20,12 +20,12 @@ public class CompositeVoyage extends ComposantVoyage {
 		throw new UnsupportedOperationException();
 	}
 
-	public string afficher() {
+	public String afficher() {
 		// TODO - implement modele.voyage.CompositeVoyage.afficher
 		throw new UnsupportedOperationException();
 	}
 
-	public BigDecimal calculerPrixTotal() {
+	public double calculerPrixTotal() {
 		// TODO - implement modele.voyage.CompositeVoyage.calculerPrixTotal
 		throw new UnsupportedOperationException();
 	}

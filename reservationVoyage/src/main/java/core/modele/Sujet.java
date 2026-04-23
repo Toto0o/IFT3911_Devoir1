@@ -8,27 +8,22 @@ public abstract class Sujet {
 
 	List<Observateur> observateurs;
 
-	/**
-	 * 
-	 * @param observateur
-	 */
-	public void attacher(Obervateur observateur) {
-		// TODO - implement core.modele.Sujet.attacher
-		throw new UnsupportedOperationException();
+	public Sujet() {
+		observateurs = new ArrayList<>();
 	}
 
-	/**
-	 * 
-	 * @param observateur
-	 */
+	public void attacher(Observateur observateur) {
+		observateurs.add(observateur);
+	}
+
 	public void detacher(Observateur observateur) {
-		// TODO - implement core.modele.Sujet.detacher
-		throw new UnsupportedOperationException();
+		observateurs.remove(observateur);
 	}
 
 	public void notifier() {
-		// TODO - implement core.modele.Sujet.notifier
-		throw new UnsupportedOperationException();
+		for (Observateur observateur : observateurs) {
+			observateur.mettreAJour();
+		}
 	}
 
 }

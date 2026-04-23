@@ -21,7 +21,7 @@ public class Avion extends Vehicule {
 
 	@Override
 	public void accepter(Visiteur visiteur) {
-		visiteur.visiter(this);
+		//visiteur.visiter(this);
 	}
 
 }

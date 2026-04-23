@@ -1,7 +1,7 @@
 package core.voyage.vehicules;
 
 import core.voyage.ElementVoyage;
-import core.voyage.vehicules.unites.UniteReservable;
+import core.reservations.unites.UniteReservable;
 import core.voyage.visiteurs.Visiteur;
 
 import java.util.*;
@@ -10,6 +10,7 @@ public class Section implements ElementVoyage {
 
 	List<UniteReservable> unitesReservables;
 	private String typeSection;
+	// AJOUTER PRIX COMME ATTRIBUT ???
 
 	public Section(String typeSection) {
 		this.typeSection = typeSection;
@@ -28,12 +29,30 @@ public class Section implements ElementVoyage {
 		return unitesReservables;
 	}
 
+	public int getNumberOfUnites() {
+		return unitesReservables.size();
+	}
+
+	public int numberOfAvilableUnites() {
+		int disp = 0;
+		for (UniteReservable unite : unitesReservables) {
+			if (unite.isAvailable()) {
+				disp++;
+			}
+		}
+		return disp;
+	}
+
 	public String getTypeSection() {
 		return typeSection;
 	}
 
 	public void setTypeSection(String typeSection) {
 		this.typeSection = typeSection;
+	}
+
+	public double getPrix() {
+		return unitesReservables.getFirst().getPrixBase();
 	}
 
 

@@ -1,6 +1,6 @@
 package core.voyage.visiteurs;
 import core.voyage.terminaux.Terminal;
-import core.voyage.vehicules.unites.UniteReservable;
+import core.reservations.unites.UniteReservable;
 import core.voyage.SegmentVoyage;
 import core.voyage.vehicules.*;
 

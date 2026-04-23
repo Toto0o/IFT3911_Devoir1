@@ -1,18 +1,20 @@
 package core.prix;
 
-public class PrixDynamique extends StrategiePrix {
+import java.util.HashMap;
+
+public class PrixDynamique implements StrategiePrix {
 
 	private double facteurDemande;
 	private double facteurSaison;
 
-	/**
-	 * 
-	 * @param prixBase
-	 * @param contexte
-	 */
-	public BigDecimal calculerPrix(BigDecimal prixBase, Map contexte) {
-		// TODO - implement modele.strategies.PrixDynamique.calculerPrix
-		throw new UnsupportedOperationException();
+	public PrixDynamique(double facteurDemande, double facteurSaison) {
+		this.facteurDemande = facteurDemande;
+		this.facteurSaison = facteurSaison;
+	}
+
+	public double calculerPrix(double prixBase) {
+		// dummy function
+		return ((facteurSaison +facteurDemande) / 2) * prixBase;
 	}
 
 }
